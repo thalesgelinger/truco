@@ -5,18 +5,18 @@ import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
 export default function App() {
-    let [fontsLoaded] = useFonts({
-        EraserRegular: require('./src/assets/fonts/EraserRegular.ttf')
-    });
+  let [fontsLoaded] = useFonts({
+    EraserRegular: require('./src/assets/fonts/EraserRegular.ttf')
+  });
 
-    if (!fontsLoaded) {
-        return <AppLoading />;
-    } else {
-        return (
-            <>
-                <StatusBar />
-                <Routes />
-            </>
-        );
-    }
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <>
+        <StatusBar />
+        <Routes />
+      </>
+    );
+  }
 }
