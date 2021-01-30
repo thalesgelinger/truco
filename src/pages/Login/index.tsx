@@ -1,18 +1,25 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Container } from '../../components/BackgroundContainer';
-import { Button } from '../../components/Button';
-import { Form } from '../../components/Form';
-import { Input } from '../../components/Input';
+import { Container, Button, Form, Input } from '../../components';
 
-export default function Login() {
+import { StackNavigationProp } from '@react-navigation/stack';
+import { KeyboardAvoidingView, Platform } from 'react-native';
+
+interface Props {
+  navigation: StackNavigationProp<any>;
+}
+export default function Login({ navigation }: Props) {
   return (
-    <Container source={require('../../assets/images/background.png')}>
-      <Form>
-        <Input placeholder="usuário" />
-        <Input placeholder="Senha" />
-        <Button>Entrar</Button>
-      </Form>
-    </Container>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{ flex: 1 }}
+    >
+      <Container source={require('../../assets/images/background.png')}>
+        <Form>
+          <Input placeholder="usuario" />
+          <Input placeholder="Senha" />
+          <Button onPress={() => navigation.navigate('Profile')}>Entrar</Button>
+        </Form>
+      </Container>
+    </KeyboardAvoidingView>
   );
 }
