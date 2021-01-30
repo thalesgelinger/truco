@@ -1,11 +1,18 @@
 import React from 'react';
-
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
+import { Container } from '../../components/BackgroundContainer';
+import { Button } from '../../components/Button';
+import { Form } from '../../components/Form';
+import { Input } from '../../components/Input';
 
 export default function Login() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontFamily: 'EraserRegular', fontSize: 48 }}>Login</Text>
-    </View>
+    <Container source={require('../../assets/images/background.png')}>
+      <Form>
+        <Input placeholder="usuário" />
+        <Input placeholder="Senha" />
+        <Button>Entrar</Button>
+      </Form>
+    </Container>
   );
 }

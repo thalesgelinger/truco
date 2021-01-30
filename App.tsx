@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import React from 'react';
 import Routes from './src/routes';
 import AppLoading from 'expo-app-loading';

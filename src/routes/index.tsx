@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from '../pages/Login';
+import { ImageBackground } from 'react-native';
 
 const { Navigator, Screen } = createStackNavigator();
 
