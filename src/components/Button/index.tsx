@@ -19,11 +19,12 @@ const TextButton = styled.Text`
 
 interface ButtonProps {
   children: ReactNode;
+  onPress(): void;
 }
 
-export function Button({ children }: ButtonProps) {
+export function Button({ children, onPress }: ButtonProps) {
   return (
-    <ButtonWrapper>
+    <ButtonWrapper onPress={onPress}>
       <TextButton>{children}</TextButton>
     </ButtonWrapper>
   );

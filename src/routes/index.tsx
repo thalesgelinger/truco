@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from '../pages/Login';
-import { ImageBackground } from 'react-native';
+import Profile from '../pages/Profile';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -12,7 +12,8 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Navigator screenOptions={{ headerShown: false }}>
-        <Screen name="login" component={Login} />
+        <Screen name="Login" component={Login} />
+        <Screen name="Profile" component={Profile} />
       </Navigator>
     </NavigationContainer>
   );
