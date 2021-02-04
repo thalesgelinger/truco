@@ -1,27 +1,23 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React, { useState } from 'react';
+import { ProfileContainer, Name } from './styles';
 
 import {
-  Container,
-  Name,
+  Background,
   ProfilePicture,
   Stats,
-  GameMode,
-  AgainstWho,
-  Button
+  Button,
+  OptionsBox
 } from '../../components';
 
-const ProfileContainer = styled.View`
-  align-items: center;
-  justify-content: space-around;
-  flex: 1;
-  margin: 20px 0;
-  width: 80%;
-`;
+const GAME_MODES = ['1x1', '2x2', '3x3'];
+const AGAINST_WHO_OPTIONS = ['amigos', 'aleatorio'];
 
 export default function Profile() {
+  const [gameMode, setGameMode] = useState(GAME_MODES[0]);
+  const [againstWho, setAgainstWho] = useState(AGAINST_WHO_OPTIONS[0]);
+
   return (
-    <Container source={require('../../assets/images/background.png')}>
+    <Background source={require('../../assets/images/background.png')}>
       <ProfileContainer>
         <ProfilePicture
           source={{
@@ -30,10 +26,20 @@ export default function Profile() {
         />
         <Name>Thales Gelinger</Name>
         <Stats />
-        <GameMode />
-        <AgainstWho />
+        <OptionsBox
+          title="Modo de jogo"
+          options={GAME_MODES}
+          selectedOption={gameMode}
+          setOption={setGameMode}
+        />
+        <OptionsBox
+          title="Contra quem?"
+          options={AGAINST_WHO_OPTIONS}
+          selectedOption={againstWho}
+          setOption={setAgainstWho}
+        />
         <Button>Jogar</Button>
       </ProfileContainer>
-    </Container>
+    </Background>
   );
 }
