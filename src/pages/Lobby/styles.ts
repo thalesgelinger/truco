@@ -1,7 +1,16 @@
-import styled from 'styled-components/native';
+import { TextInput } from 'react-native';
+import { StyledComponent } from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components/native';
 import { Button, Input } from '../../components';
 
-export const SearchInput = styled(Input).attrs({
+export const SearchInput: StyledComponent<
+  typeof TextInput,
+  DefaultTheme,
+  {
+    placeholderTextColor: '#ffffff';
+  },
+  'placeholderTextColor'
+> = styled(Input).attrs({
   placeholderTextColor: '#A05824'
 })`
   width: 100%;

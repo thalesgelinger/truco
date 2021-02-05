@@ -12,12 +12,12 @@ interface Player {
 }
 
 export function Lobby() {
-  const [players, setPlayers] = useState<Player[]>([]);
+  const [players, setPlayers] = useState<Player[]>(db.players);
   const [oponents, setOponents] = useState<Player[]>([]);
 
   useEffect(() => {
     setPlayers(db.players);
-  }, [players]);
+  }, []);
 
   function isOponent(oponent: Player) {
     return oponents.some((player) => oponent === player);
@@ -32,10 +32,21 @@ export function Lobby() {
     setOponents([...oponents, oponent]);
   }
 
+  function playersFilter(searchText: string) {
+    if (!searchText) {
+      setPlayers(db.players);
+      return;
+    }
+    setPlayers(players.filter((player) => player.name.startsWith(searchText)));
+  }
+
   return (
     <Background source={background}>
       <Container>
-        <SearchInput placeholder="Pesquisar jogadores" />
+        <SearchInput
+          placeholder="Pesquisar jogadores"
+          onChangeText={playersFilter}
+        />
         <PlayersList
           data={players}
           renderItem={({ item: player }: { item: Player }) => (
