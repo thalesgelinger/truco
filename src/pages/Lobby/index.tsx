@@ -3,6 +3,7 @@ import { Background, PlayerCard } from '../../components';
 import background from '../../assets/images/background.png';
 import { Container, PlayersList, SearchInput, StartButton } from './styles';
 import db from '../../../mocks/db.json';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface Player {
   id: number;
@@ -11,7 +12,11 @@ interface Player {
   status: string;
 }
 
-export function Lobby() {
+interface Props {
+  navigation: StackNavigationProp<any>;
+}
+
+export function Lobby({ navigation }: Props) {
   const [players, setPlayers] = useState<Player[]>(db.players);
   const [oponents, setOponents] = useState<Player[]>([]);
 
@@ -61,7 +66,13 @@ export function Lobby() {
           columnWrapperStyle={{ justifyContent: 'space-around' }}
           showsVerticalScrollIndicator={false}
         />
-        <StartButton>
+        <StartButton
+          onPress={() =>
+            navigation.navigate('Waiting', {
+              oponents
+            })
+          }
+        >
           {oponents.length / 1 === 1 ? 'Jogar' : oponents.length + '/1'}
         </StartButton>
       </Container>

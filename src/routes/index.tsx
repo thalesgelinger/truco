@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Lobby, Login, Profile } from '../pages';
+import { Lobby, Login, Profile, Waiting } from '../pages';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -13,6 +13,7 @@ export default function Routes() {
         <Screen name="Login" component={Login} />
         <Screen name="Profile" component={Profile} />
         <Screen name="Lobby" component={Lobby} />
+        <Screen name="Waiting" component={Waiting} />
       </Navigator>
     </NavigationContainer>
   );
