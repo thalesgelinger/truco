@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Background, PlayerCard } from '../../components';
 import background from '../../assets/images/background.png';
 import { Container, PlayersList, SearchInput, StartButton } from './styles';
+import db from '../../../mocks/db.json';
 
 interface Player {
   id: number;
@@ -11,7 +12,12 @@ interface Player {
 }
 
 export function Lobby() {
+  const [players, setPlayers] = useState<Player[]>([]);
   const [oponents, setOponents] = useState<Player[]>([]);
+
+  useEffect(() => {
+    setPlayers(db.players);
+  }, [players]);
 
   function isOponent(oponent: Player) {
     return oponents.some((player) => oponent === player);
@@ -31,7 +37,7 @@ export function Lobby() {
       <Container>
         <SearchInput placeholder="Pesquisar jogadores" />
         <PlayersList
-          data={MOCK_DATA}
+          data={players}
           renderItem={({ item: player }: { item: Player }) => (
             <PlayerCard
               info={player}
@@ -51,66 +57,3 @@ export function Lobby() {
     </Background>
   );
 }
-
-const MOCK_DATA: Player[] = [
-  {
-    id: 0,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'avaiable'
-  },
-  {
-    id: 1,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'playing'
-  },
-  {
-    id: 2,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'offline'
-  },
-  {
-    id: 3,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'playing'
-  },
-  {
-    id: 4,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'avaiable'
-  },
-  {
-    id: 5,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'avaiable'
-  },
-  {
-    id: 6,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'avaiable'
-  },
-  {
-    id: 7,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'avaiable'
-  },
-  {
-    id: 8,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'avaiable'
-  },
-  {
-    id: 9,
-    image: 'https://avatars.githubusercontent.com/u/55005400?v=4',
-    name: 'Thales Gelinger',
-    status: 'avaiable'
-  }
-];

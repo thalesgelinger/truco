@@ -1,0 +1,64 @@
+{
+  "players": [
+    {
+      "id": 0,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "avaiable"
+    },
+    {
+      "id": 1,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "playing"
+    },
+    {
+      "id": 2,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "offline"
+    },
+    {
+      "id": 3,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "playing"
+    },
+    {
+      "id": 4,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "avaiable"
+    },
+    {
+      "id": 5,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "avaiable"
+    },
+    {
+      "id": 6,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "avaiable"
+    },
+    {
+      "id": 7,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "avaiable"
+    },
+    {
+      "id": 8,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "avaiable"
+    },
+    {
+      "id": 9,
+      "image": "https://avatars.githubusercontent.com/u/55005400?v=4",
+      "name": "Thales Gelinger",
+      "status": "avaiable"
+    }
+  ]
+}
