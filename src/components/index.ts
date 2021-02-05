@@ -5,3 +5,4 @@ export { Input } from './Input';
 export { ProfilePicture } from './ProfilePicture';
 export { Stats } from './Stats';
 export { OptionsBox } from './OptionsBox';
+export { PlayerCard } from './PlayerCard';
