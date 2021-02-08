@@ -27,6 +27,13 @@ export function Waiting({ navigation, route }: Props) {
     setIsOponentReady(true);
   }, 1000);
 
+  if (isOponentReady) {
+    navigation.navigate('Game', {
+      oponent: oponents[0],
+      me: db.players[0]
+    });
+  }
+
   return (
     <Background source={background}>
       <Container>

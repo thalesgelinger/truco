@@ -6,3 +6,4 @@ export { ProfilePicture } from './ProfilePicture';
 export { Stats } from './Stats';
 export { OptionsBox } from './OptionsBox';
 export { PlayerCard } from './PlayerCard';
+export { ModalAction } from './ModalAction';

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Background, PlayerCard } from '../../components';
+import { Background, ModalAction, PlayerCard } from '../../components';
 import background from '../../assets/images/background.png';
 import { Container, PlayersList, SearchInput, StartButton } from './styles';
 import db from '../../../mocks/db.json';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { Text } from 'react-native';
 
 interface Player {
   id: number;
@@ -19,6 +20,9 @@ interface Props {
 export function Lobby({ navigation }: Props) {
   const [players, setPlayers] = useState<Player[]>(db.players);
   const [oponents, setOponents] = useState<Player[]>([]);
+  const [isGameRequested, setIsGameRequested] = useState(false);
+
+  setTimeout(() => setIsGameRequested(true), 1000);
 
   useEffect(() => {
     setPlayers(db.players);
@@ -48,6 +52,11 @@ export function Lobby({ navigation }: Props) {
   return (
     <Background source={background}>
       <Container>
+        {isGameRequested && (
+          <ModalAction>
+            <Text>Existe</Text>
+          </ModalAction>
+        )}
         <SearchInput
           placeholder="Pesquisar jogadores"
           onChangeText={playersFilter}
