@@ -4,7 +4,16 @@ import background from '../../assets/images/background.png';
 import { Container, PlayersList, SearchInput, StartButton } from './styles';
 import db from '../../../mocks/db.json';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { Text } from 'react-native';
+import {
+  AcceptBtn,
+  BtnText,
+  DeclineBtn,
+  InviteMessage,
+  Name,
+  Photo,
+  PlayerIdentifier,
+  QuestionBox
+} from '../../components/ModalAction/styles';
 
 interface Player {
   id: number;
@@ -22,10 +31,9 @@ export function Lobby({ navigation }: Props) {
   const [oponents, setOponents] = useState<Player[]>([]);
   const [isGameRequested, setIsGameRequested] = useState(false);
 
-  setTimeout(() => setIsGameRequested(true), 1000);
-
   useEffect(() => {
     setPlayers(db.players);
+    setTimeout(() => setIsGameRequested(true), 1000);
   }, []);
 
   function isOponent(oponent: Player) {
@@ -51,12 +59,34 @@ export function Lobby({ navigation }: Props) {
 
   return (
     <Background source={background}>
+      {isGameRequested && (
+        <ModalAction>
+          <PlayerIdentifier>
+            <Photo source={{ uri: db.players[0].image }} />
+            <Name>Thales Gelinger</Name>
+          </PlayerIdentifier>
+          <InviteMessage>Te chamou pra jogar</InviteMessage>
+          <QuestionBox>
+            <AcceptBtn
+              onPress={() =>
+                navigation.navigate('Game', {
+                  oponents
+                })
+              }
+            >
+              <BtnText>Quero</BtnText>
+            </AcceptBtn>
+            <DeclineBtn
+              onPress={() => {
+                setIsGameRequested(false);
+              }}
+            >
+              <BtnText>Não quero</BtnText>
+            </DeclineBtn>
+          </QuestionBox>
+        </ModalAction>
+      )}
       <Container>
-        {isGameRequested && (
-          <ModalAction>
-            <Text>Existe</Text>
-          </ModalAction>
-        )}
         <SearchInput
           placeholder="Pesquisar jogadores"
           onChangeText={playersFilter}
