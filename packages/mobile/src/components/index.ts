@@ -7,3 +7,5 @@ export { Stats } from './Stats';
 export { OptionsBox } from './OptionsBox';
 export { PlayerCard } from './PlayerCard';
 export { ModalAction } from './ModalAction';
+export { Table } from './Table';
+export { PlayerIcon } from './PlayerIcon';

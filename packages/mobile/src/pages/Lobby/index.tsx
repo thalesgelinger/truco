@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Background, ModalAction, PlayerCard } from '../../components';
+import {
+  Background,
+  ModalAction,
+  PlayerCard,
+  PlayerIcon
+} from '../../components';
 import background from '../../assets/images/background.png';
 import { Container, PlayersList, SearchInput, StartButton } from './styles';
 import db from '../../../mocks/db.json';
@@ -10,7 +15,6 @@ import {
   DeclineBtn,
   InviteMessage,
   Name,
-  Photo,
   PlayerIdentifier,
   QuestionBox
 } from '../../components/ModalAction/styles';
@@ -57,35 +61,39 @@ export function Lobby({ navigation }: Props) {
     setPlayers(players.filter((player) => player.name.startsWith(searchText)));
   }
 
+  function renderInviteCard() {
+    return (
+      <ModalAction>
+        <PlayerIdentifier>
+          <PlayerIcon source={db.players[0].image} />
+          <Name>Thales Gelinger</Name>
+        </PlayerIdentifier>
+        <InviteMessage>Te chamou pra jogar</InviteMessage>
+        <QuestionBox>
+          <AcceptBtn
+            onPress={() =>
+              navigation.navigate('Game', {
+                oponents
+              })
+            }
+          >
+            <BtnText>Quero</BtnText>
+          </AcceptBtn>
+          <DeclineBtn
+            onPress={() => {
+              setIsGameRequested(false);
+            }}
+          >
+            <BtnText>Não quero</BtnText>
+          </DeclineBtn>
+        </QuestionBox>
+      </ModalAction>
+    );
+  }
+
   return (
     <Background source={background}>
-      {isGameRequested && (
-        <ModalAction>
-          <PlayerIdentifier>
-            <Photo source={{ uri: db.players[0].image }} />
-            <Name>Thales Gelinger</Name>
-          </PlayerIdentifier>
-          <InviteMessage>Te chamou pra jogar</InviteMessage>
-          <QuestionBox>
-            <AcceptBtn
-              onPress={() =>
-                navigation.navigate('Game', {
-                  oponents
-                })
-              }
-            >
-              <BtnText>Quero</BtnText>
-            </AcceptBtn>
-            <DeclineBtn
-              onPress={() => {
-                setIsGameRequested(false);
-              }}
-            >
-              <BtnText>Não quero</BtnText>
-            </DeclineBtn>
-          </QuestionBox>
-        </ModalAction>
-      )}
+      {isGameRequested && renderInviteCard()}
       <Container>
         <SearchInput
           placeholder="Pesquisar jogadores"

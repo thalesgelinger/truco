@@ -31,12 +31,6 @@ export const PlayerIdentifier = styled.View`
   width: 100%;
 `;
 
-export const Photo = styled.Image`
-  height: 80px;
-  width: 80px;
-  border-radius: 40px;
-`;
-
 export const Name = styled.Text`
   font-family: 'EraserRegular';
   font-size: 20px;

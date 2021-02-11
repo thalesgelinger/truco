@@ -24,8 +24,8 @@ const allStatus: StatusProp = {
 };
 
 export const Container = styled.TouchableOpacity<Props>`
-  border: 3px solid;
-  border-color: ${({ status }) => allStatus[status]};
+  padding: 2px;
+  background-color: ${({ status }) => allStatus[status]};
   border-radius: 15px;
   height: 209px;
   width: 150px;
