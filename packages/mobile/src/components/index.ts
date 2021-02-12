@@ -9,3 +9,4 @@ export { PlayerCard } from './PlayerCard';
 export { ModalAction } from './ModalAction';
 export { Table } from './Table';
 export { PlayerIcon } from './PlayerIcon';
+export { Card } from './Card';
