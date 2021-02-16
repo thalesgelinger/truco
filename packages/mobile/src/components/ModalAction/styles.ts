@@ -14,10 +14,18 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-export const Card = styled.ImageBackground`
+export const CardWrapper = styled.View`
+  background-color: #ffffff;
+  padding: 1px;
   height: 300px;
   width: 300px;
-  border-radius: 3px;
+  border-radius: 10px;
+`;
+
+export const Card = styled.ImageBackground`
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
   border: 3px solid #ffffff;
   padding: 15px 5px;
   justify-content: space-between;
@@ -71,6 +79,15 @@ export const DeclineBtn = styled(ActionButton)`
     #da251d 50.3%,
     rgba(218, 37, 29, 0.412998) 76.35%,
     rgba(218, 37, 29, 0) 100%
+  );
+`;
+
+export const ActionBtn = styled(ActionButton)`
+  background-color: linear-gradient(
+    180deg,
+    #b3ab00 50.31%,
+    rgba(178, 171, 0, 0.601677) 75.31%,
+    rgba(178, 171, 0, 0) 100%
   );
 `;
 

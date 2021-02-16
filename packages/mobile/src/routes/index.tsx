@@ -12,10 +12,10 @@ export default function Routes() {
     <Provider store={store}>
       <NavigationContainer>
         <Navigator screenOptions={{ headerShown: false }}>
-          {/* <Screen name="Login" component={Login} />
+          <Screen name="Login" component={Login} />
           <Screen name="Profile" component={Profile} />
           <Screen name="Lobby" component={Lobby} />
-          <Screen name="Waiting" component={Waiting} /> */}
+          <Screen name="Waiting" component={Waiting} />
           <Screen name="Game" component={Game} />
         </Navigator>
       </NavigationContainer>
