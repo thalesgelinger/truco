@@ -1,9 +1,16 @@
 import React, { useRef, useMemo, useEffect } from 'react';
+import { ReactNode } from 'react';
 import { Animated, PanResponder } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-export function Draggable({ children }) {
+interface Props {
+  children: ReactNode;
+  interact?: boolean;
+}
+
+export function Draggable({ children, interact }: Props) {
   const dropArea = useSelector((state) => state.dropArea);
+  const dispatch = useDispatch();
 
   const position = useRef(new Animated.ValueXY()).current;
   const panResponder = useMemo(
@@ -15,7 +22,7 @@ export function Draggable({ children }) {
         },
         onPanResponderRelease: (_, gesture) => {
           if (isOverDropArea(gesture)) {
-            console.log('IS DROP AREA');
+            dispatch({ type: 'DROP_CARD', card: children?.props?.card });
           }
           position.setValue({ x: 0, y: 0 });
         }
@@ -36,14 +43,14 @@ export function Draggable({ children }) {
     return isOverXArea && isOverYArea;
   }
 
+  const handlers = interact ? panResponder.panHandlers : {};
+
   return (
-    !!dropArea && (
-      <Animated.View
-        {...panResponder.panHandlers}
-        style={{ transform: position.getTranslateTransform() }}
-      >
-        {children}
-      </Animated.View>
-    )
+    <Animated.View
+      {...handlers}
+      style={{ transform: position.getTranslateTransform() }}
+    >
+      {children}
+    </Animated.View>
   );
 }
