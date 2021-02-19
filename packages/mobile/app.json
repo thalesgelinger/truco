@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "truco-mobile",
-    "slug": "truco-mobile",
+    "name": "truco",
+    "slug": "truco",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -21,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.thalesgelinger.truco"
     },
     "web": {
       "favicon": "./assets/favicon.png"
