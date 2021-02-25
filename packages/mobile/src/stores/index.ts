@@ -42,10 +42,11 @@ function game(state = INITIAL_STATE, action) {
       let { cardsOnTable, playerCards }: StateProps = state;
       playerCards[playerCards.indexOf(action.card)] = {};
       cardsOnTable[0] = action.card;
-
       return { ...state, cardsOnTable, playerCards };
     case 'ADD_USER':
       return { ...state, user: action.user };
+    case 'REMOVE_USER':
+      return { ...state, user: null };
     default:
       return state;
   }

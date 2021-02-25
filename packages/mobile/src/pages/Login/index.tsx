@@ -8,6 +8,7 @@ import background from '../../assets/images/background.png';
 import * as Google from 'expo-google-app-auth';
 
 import { ANDROID_CLIENT_ID, CLIENT_ID } from '@env';
+import { useDispatch } from 'react-redux';
 
 interface Props {
   navigation: StackNavigationProp<any>;
@@ -15,6 +16,7 @@ interface Props {
 
 export function Login({ navigation }: Props) {
   const { setItem } = useAsyncStorage('@Truco:user');
+  const dispatch = useDispatch();
 
   async function signInWithGoogle() {
     try {
@@ -24,9 +26,10 @@ export function Login({ navigation }: Props) {
         scopes: ['profile', 'email']
       });
 
-      setItem(user);
+      setItem(JSON.stringify(user));
 
-      navigation.navigate('Profile', {
+      dispatch({
+        type: 'ADD_USER',
         user
       });
     } catch (e) {

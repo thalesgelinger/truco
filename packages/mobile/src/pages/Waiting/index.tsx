@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Background, PlayerCard } from '../../components';
 import background from '../../assets/images/background.png';
 import { Container } from './styles';
@@ -27,12 +27,11 @@ export function Waiting({ navigation, route }: Props) {
     setIsOponentReady(true);
   }, 1000);
 
-  if (isOponentReady) {
-    navigation.navigate('Game', {
-      oponent: oponents[0],
-      me: db.players[0]
-    });
-  }
+  useEffect(() => {
+    if (isOponentReady) {
+      navigation.navigate('Game');
+    }
+  }, [isOponentReady]);
 
   return (
     <Background source={background}>

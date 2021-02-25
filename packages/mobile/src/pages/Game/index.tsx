@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   Background,
   Card,
@@ -41,7 +41,7 @@ export function Game() {
     };
   }
 
-  function renderInviteCard() {
+  function renderActionCard() {
     return (
       <ModalAction>
         <PlayerIdentifier>
@@ -70,7 +70,7 @@ export function Game() {
 
   return (
     <Background source={background}>
-      {showActionModal && renderInviteCard()}
+      {showActionModal && renderActionCard()}
       <Hand cards={oponentCards} place={{ top: -30 }} />
       <Table>
         <Score place="top" number={scoreOponent} />

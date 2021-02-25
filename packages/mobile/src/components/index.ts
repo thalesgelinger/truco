@@ -12,3 +12,4 @@ export { PlayerIcon } from './PlayerIcon';
 export { Card } from './Card';
 export { Score } from './Score';
 export { Hand } from './Hand';
+export { LogoutButton } from './LogoutButton';
