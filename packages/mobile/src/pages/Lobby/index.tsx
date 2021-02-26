@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Background,
   ModalAction,
@@ -13,11 +13,13 @@ import {
   AcceptBtn,
   BtnText,
   DeclineBtn,
-  InviteMessage,
+  Message,
   Name,
   PlayerIdentifier,
   QuestionBox
 } from '../../components/ModalAction/styles';
+import { ActivityIndicator } from 'react-native';
+import { useSelector } from 'react-redux';
 
 interface Player {
   id: number;
@@ -31,13 +33,15 @@ interface Props {
 }
 
 export function Lobby({ navigation }: Props) {
+  const { user } = useSelector((state) => state);
+
   const [players, setPlayers] = useState<Player[]>(db.players);
   const [oponents, setOponents] = useState<Player[]>([]);
   const [isGameRequested, setIsGameRequested] = useState(false);
+  const [isWaitingOponentAccept, setIsWaitingOponentAccept] = useState(false);
 
   useEffect(() => {
     setPlayers(db.players);
-    setTimeout(() => setIsGameRequested(true), 1000);
   }, []);
 
   function isOponent(oponent: Player) {
@@ -61,14 +65,19 @@ export function Lobby({ navigation }: Props) {
     setPlayers(players.filter((player) => player.name.startsWith(searchText)));
   }
 
+  function handleWaitGameStart() {
+    setIsWaitingOponentAccept(true);
+    navigation.navigate('Game', { oponents });
+  }
+
   function renderInviteCard() {
     return (
       <ModalAction>
         <PlayerIdentifier>
-          <PlayerIcon source={db.players[0].image} />
+          <PlayerIcon source={user.photoUrl} />
           <Name>Thales Gelinger</Name>
         </PlayerIdentifier>
-        <InviteMessage>Te chamou pra jogar</InviteMessage>
+        <Message>Te chamou pra jogar</Message>
         <QuestionBox>
           <AcceptBtn
             onPress={() =>
@@ -91,9 +100,30 @@ export function Lobby({ navigation }: Props) {
     );
   }
 
+  function renderWaitingModal() {
+    return (
+      <ModalAction>
+        <PlayerIdentifier>
+          <PlayerIcon source={oponents[0].image} />
+          <Name>{oponents[0].name.replace(' ', '\n')}</Name>
+        </PlayerIdentifier>
+        <Message>Aguardando</Message>
+        <ActivityIndicator size="large" color="#ffffff" />
+        <DeclineBtn
+          onPress={() => {
+            setIsWaitingOponentAccept(false);
+          }}
+        >
+          <BtnText>Cancelar</BtnText>
+        </DeclineBtn>
+      </ModalAction>
+    );
+  }
+
   return (
     <Background source={background}>
       {isGameRequested && renderInviteCard()}
+      {isWaitingOponentAccept && renderWaitingModal()}
       <Container>
         <SearchInput
           placeholder="Pesquisar jogadores"
@@ -113,13 +143,7 @@ export function Lobby({ navigation }: Props) {
           columnWrapperStyle={{ justifyContent: 'space-around' }}
           showsVerticalScrollIndicator={false}
         />
-        <StartButton
-          onPress={() =>
-            navigation.navigate('Waiting', {
-              oponents
-            })
-          }
-        >
+        <StartButton onPress={handleWaitGameStart}>
           {oponents.length / 1 === 1 ? 'Jogar' : oponents.length + '/1'}
         </StartButton>
       </Container>

@@ -43,9 +43,10 @@ export const Name = styled.Text`
   font-family: 'EraserRegular';
   font-size: 20px;
   color: #ffffff;
+  text-align: center;
 `;
 
-export const InviteMessage = styled.Text`
+export const Message = styled.Text`
   font-family: 'EraserRegular';
   font-size: 20px;
   color: #ffffff;

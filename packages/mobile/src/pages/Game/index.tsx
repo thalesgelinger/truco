@@ -17,7 +17,7 @@ import {
   BtnText,
   ActionBtn,
   DeclineBtn,
-  InviteMessage,
+  Message,
   Name,
   PlayerIdentifier,
   QuestionBox
@@ -48,7 +48,7 @@ export function Game() {
           <PlayerIcon source={db.players[0].image} />
           <Name>{db.players[0].name}</Name>
         </PlayerIdentifier>
-        <InviteMessage>Pediu truco!</InviteMessage>
+        <Message>Pediu truco!</Message>
         <ActionBtn>
           <BtnText>Retruco</BtnText>
         </ActionBtn>
