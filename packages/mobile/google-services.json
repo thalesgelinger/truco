@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "51864849658",
+    "project_id": "truco-cd31d",
+    "storage_bucket": "truco-cd31d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51864849658:android:53a0c92c36e3399a9e0d43",
+        "android_client_info": {
+          "package_name": "com.thalesgelinger.truco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51864849658-q65fe6s4ubp7e4v53hn3f0cuh49mtp6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeNK4OSystgkS5r2_cjpN82lNLTTmhsdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51864849658-q65fe6s4ubp7e4v53hn3f0cuh49mtp6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

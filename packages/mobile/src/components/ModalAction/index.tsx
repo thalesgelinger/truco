@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import { Card, Container } from './styles';
+import { Card, Container, CardWrapper } from './styles';
+import cardBackground from '../../assets/images/cardBackground.png';
 
 interface Props {
   children: ReactNode;
@@ -8,7 +9,9 @@ interface Props {
 export function ModalAction({ children }: Props) {
   return (
     <Container>
-      <Card>{children}</Card>
+      <CardWrapper>
+        <Card source={cardBackground}>{children}</Card>
+      </CardWrapper>
     </Container>
   );
 }

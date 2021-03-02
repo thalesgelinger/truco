@@ -48,5 +48,11 @@
       "name": "Alexandre Neto",
       "status": "playing"
     }
+  ],
+  "cards": [
+    {
+      "id": 0,
+      "image": ""
+    }
   ]
 }

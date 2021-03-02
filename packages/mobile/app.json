@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "truco-mobile",
-    "slug": "truco-mobile",
+    "name": "truco",
+    "slug": "truco",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,13 +15,22 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.thalesgelinger.truco",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.51864849658-b6pe6etgc361ks6q8c66hht37hj9lpnb"
+        }
+      },
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.thalesgelinger.truco",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"

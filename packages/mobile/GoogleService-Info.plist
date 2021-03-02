@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>51864849658-b6pe6etgc361ks6q8c66hht37hj9lpnb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.51864849658-b6pe6etgc361ks6q8c66hht37hj9lpnb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCNmIZ5g77QzxkOPR_Zs5JBvZUaTIT5WiA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>51864849658</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.thalesgelinger.truco</string>
+	<key>PROJECT_ID</key>
+	<string>truco-cd31d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>truco-cd31d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:51864849658:ios:fbf78afaa9e4689f9e0d43</string>
+</dict>
+</plist>

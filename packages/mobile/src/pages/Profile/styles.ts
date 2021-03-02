@@ -6,6 +6,7 @@ export const ProfileContainer = styled.View`
   flex: 1;
   margin: 20px 0;
   width: 80%;
+  position: relative;
 `;
 
 export const Name = styled.Text`

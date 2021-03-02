@@ -7,7 +7,8 @@ export const ImageWrapper = styled.Image`
 `;
 
 export const Container = styled.View`
-  border: 2px solid #ffffff;
+  padding: 2px;
+  background-color: #ffffff;
   border-radius: 15px;
   height: 209px;
   width: 150px;
